@@ -29,7 +29,18 @@ describe('app routes', () => {
           'mix ingredients',
           'put dough on cookie sheet',
           'bake for 10 minutes'
-        ]
+        ],
+        ingredients: [{
+          name: 'eggs',
+          amount: 4,
+          measurement: 'Grade AA eggs'
+  
+        },
+        {
+          name: 'flour',
+          amount: 10,
+          measurement: 'cups'
+        }]
       })
       .then(res => {
         expect(res.body).toEqual({
@@ -41,6 +52,19 @@ describe('app routes', () => {
             'put dough on cookie sheet',
             'bake for 10 minutes'
           ],
+          ingredients: [{
+            _id: expect.any(String),
+            name: 'eggs',
+            amount: 4,
+            measurement: 'Grade AA eggs'
+    
+          },
+          {
+            _id: expect.any(String),
+            name: 'flour',
+            amount: 10,
+            measurement: 'cups'
+          }],
           __v: 0
         });
       });
@@ -71,7 +95,19 @@ describe('app routes', () => {
         'mix ingredients',
         'put dough on cookie sheet',
         'bake for 10 minutes'
-      ] });
+      ],
+      ingredients: [{
+        name: 'eggs',
+        amount: 4,
+        measurement: 'Grade AA eggs'
+
+      },
+      {
+        name: 'flour',
+        amount: 10,
+        measurement: 'cups'
+      }]
+    });
 
     return request(app)
       .get(`/api/v1/recipes/${recipe._id}`)
@@ -85,7 +121,20 @@ describe('app routes', () => {
             'mix ingredients',
             'put dough on cookie sheet',
             'bake for 10 minutes'
-          ]
+          ],
+          ingredients: [{
+            _id: expect.any(String),
+            name: 'eggs',
+            amount: 4,
+            measurement: 'Grade AA eggs'
+    
+          },
+          {
+            _id: expect.any(String),
+            name: 'flour',
+            amount: 10,
+            measurement: 'cups'
+          }]
         });
       });
   });
@@ -100,6 +149,17 @@ describe('app routes', () => {
         'put dough on cookie sheet',
         'bake for 10 minutes'
       ],
+      ingredients: [{
+        name: 'eggs',
+        amount: 4,
+        measurement: 'Grade AA eggs'
+
+      },
+      {
+        name: 'flour',
+        amount: 10,
+        measurement: 'cups'
+      }]
     });
 
     return request(app)
@@ -115,6 +175,19 @@ describe('app routes', () => {
             'put dough on cookie sheet',
             'bake for 10 minutes'
           ],
+          ingredients: [{
+            _id: expect.any(String),
+            name: 'eggs',
+            amount: 4,
+            measurement: 'Grade AA eggs'
+    
+          },
+          {
+            _id: expect.any(String),
+            name: 'flour',
+            amount: 10,
+            measurement: 'cups'
+          }],
           __v: 0
         });
       });
@@ -127,7 +200,18 @@ describe('app routes', () => {
         'mix ingredients',
         'put dough on cookie sheet',
         'bake for 10 minutes'
-      ]
+      ],
+      ingredients: [{
+        name: 'eggs',
+        amount: 4,
+        measurement: 'Grade AA eggs'
+
+      },
+      {
+        name: 'flour',
+        amount: 10,
+        measurement: 'cups'
+      }]
     });
 
     return request(app)
@@ -142,7 +226,20 @@ describe('app routes', () => {
             'mix ingredients',
             'put dough on cookie sheet',
             'bake for 10 minutes'
-          ]
+          ],
+          ingredients: [{
+            _id: expect.any(String),
+            name: 'eggs',
+            amount: 4,
+            measurement: 'Grade AA eggs'
+    
+          },
+          {
+            _id: expect.any(String),
+            name: 'flour',
+            amount: 10,
+            measurement: 'cups'
+          }]
         });
       
       });
