@@ -89,76 +89,32 @@ describe('app routes', () => {
 
   it('updates a attempt by id', async() => {
     const attempt = await Attempt.create({
-      name: 'cookies',
-      directions: [
-        'preheat oven to 375',
-        'mix ingredients',
-        'put dough on cookie sheet',
-        'bake for 10 minutes'
-      ],
-      ingredients: [{
-        name: 'eggs',
-        amount: 4,
-        measurement: 'Grade AA eggs'
-
-      },
-      {
-        name: 'flour',
-        amount: 10,
-        measurement: 'cups'
-      }]
+      dateOfAttempt: new Date(),
+      notes: 'This is a great recipe',
+      rating: 3,
+      recipeId:'cake123'
     });
 
     return request(app)
       .patch(`/api/v1/attempts/${attempt._id}`)
-      .send({ name: 'good cookies' })
+      .send({ notes: 'good cookies' })
       .then(res => {
         expect(res.body).toEqual({
           _id: expect.any(String),
-          name: 'good cookies',
-          directions: [
-            'preheat oven to 375',
-            'mix ingredients',
-            'put dough on cookie sheet',
-            'bake for 10 minutes'
-          ],
-          ingredients: [{
-            _id: expect.any(String),
-            name: 'eggs',
-            amount: 4,
-            measurement: 'Grade AA eggs'
-    
-          },
-          {
-            _id: expect.any(String),
-            name: 'flour',
-            amount: 10,
-            measurement: 'cups'
-          }],
+          dateOfAttempt: res.body.dateOfAttempt,
+          notes: 'good cookies',
+          rating: 3,
+          recipeId:'cake123',
           __v: 0
         });
       });
   });
   it('deletes a attempt', async() => {
     const attempt = await Attempt.create({
-      name: 'cookies',
-      directions: [
-        'preheat oven to 375',
-        'mix ingredients',
-        'put dough on cookie sheet',
-        'bake for 10 minutes'
-      ],
-      ingredients: [{
-        name: 'eggs',
-        amount: 4,
-        measurement: 'Grade AA eggs'
-
-      },
-      {
-        name: 'flour',
-        amount: 10,
-        measurement: 'cups'
-      }]
+      dateOfAttempt: new Date(),
+      notes: 'This is a great recipe',
+      rating: 3,
+      recipeId:'cake123'
     });
 
     return request(app)
@@ -167,26 +123,10 @@ describe('app routes', () => {
         expect(res.body).toEqual({
           __v: 0,
           _id: attempt._id.toString(),
-          name: 'cookies',
-          directions: [
-            'preheat oven to 375',
-            'mix ingredients',
-            'put dough on cookie sheet',
-            'bake for 10 minutes'
-          ],
-          ingredients: [{
-            _id: expect.any(String),
-            name: 'eggs',
-            amount: 4,
-            measurement: 'Grade AA eggs'
-    
-          },
-          {
-            _id: expect.any(String),
-            name: 'flour',
-            amount: 10,
-            measurement: 'cups'
-          }]
+          dateOfAttempt: res.body.dateOfAttempt,
+          notes: 'This is a great recipe',
+          rating: 3,
+          recipeId:'cake123'
         });
       
       });
